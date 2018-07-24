@@ -65,3 +65,36 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+sensio_framework_extra:
+    request: { converters: true }
+
+fos_rest:
+    view:
+        formats: { json: true, xml: false, rss: false }
+        view_response_listener: true
+        mime_types:
+            json: ['application/json', 'application/json;version=1.0', 'application/json;version=2.0']
+    serializer:
+        serialize_null: true
+    body_converter: 
+        enabled: true
+        validate: true
+        validation_errors_argument: violations
+    format_listener:
+        rules:
+            - { path: '^/', priorities: ['json'], fallback_format: 'json' }
+    param_fetcher_listener: force
+    # Gestion des erreurs via la configuration
+    # Activation du système de renvoi de réponse avec un code status donné en fonction du type d'exception renvoyée.
+    exception: 
+        enabled: true 
+        codes:
+            { AppBundle\Exception\ResourceValidationException: 400, \Exception: 500 }
+        exception_controller: 'fos_rest.exception.controller:showAction'
+    versioning:
+        enabled: true
+        resolvers:
+            media_type: # Accept header
+                enabled: true
+                regex: '/(v|version)=(?P<version>[0-9\.]+)/'
