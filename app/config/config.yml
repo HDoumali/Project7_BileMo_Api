@@ -30,6 +30,8 @@ framework:
     assets: ~
     php_errors:
         log: true
+    templating:
+        engines: ['twig']
 
 # Twig Configuration
 twig:
@@ -68,6 +70,14 @@ swiftmailer:
 
 sensio_framework_extra:
     request: { converters: true }
+
+fos_user:
+    db_driver:     orm                       # Le type de BDD à utiliser, nous utilisons l'ORM Doctrine depuis le début
+    firewall_name: main                      # Le nom du firewall derrière lequel on utilisera ces utilisateurs
+    user_class:    AppBundle\Entity\Customer # La classe de l'entité User que nous utilisons
+    from_email:
+        address: "%mailer_user%"
+        sender_name: "%mailer_user%"
 
 fos_rest:
     view:
