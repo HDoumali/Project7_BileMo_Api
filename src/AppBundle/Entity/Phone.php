@@ -3,12 +3,16 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * Phone
  *
  * @ORM\Table(name="phone")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PhoneRepository")
+ * @ExclusionPolicy("all")
  */
 class Phone
 {
@@ -25,6 +29,8 @@ class Phone
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Expose
+     * @Serializer\Since("1.0")
      */
     private $name;
 
@@ -32,6 +38,8 @@ class Phone
      * @var string
      *
      * @ORM\Column(name="brand", type="string", length=255)
+     * @Expose
+     * @Serializer\Since("1.0")
      */
     private $brand;
 
@@ -39,6 +47,8 @@ class Phone
      * @var string
      *
      * @ORM\Column(name="color", type="string", length=255)
+     * @Expose
+     * @Serializer\Since("1.0")
      */
     private $color;
 
@@ -46,6 +56,8 @@ class Phone
      * @var float
      *
      * @ORM\Column(name="price", type="float")
+     * @Expose
+     * @Serializer\Since("1.0")
      */
     private $price;
 

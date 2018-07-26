@@ -16,9 +16,9 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        api_doc:
-            pattern: ^/api/doc
-            security: false
+        #api_doc:
+            #pattern: ^/api/doc
+            #security: false
 
         oauth_token:
             pattern:    ^/oauth/v2/token
