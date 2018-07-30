@@ -48,4 +48,47 @@ class UserController extends FOSRestController
 		return $users;
 	}
 
+	/**
+	 * @Rest\Post(
+	 *		path = "api/users",
+	 *		name = "app_user_create",
+	 * )
+	 *
+	 * @Rest\View(StatusCode=201)
+	 *
+	 * @ParamConverter(
+	 *		 "user",
+	 *       converter="fos_rest.request_body",
+	 * )
+	 */
+	public function CreateAction(User $user, ConstraintViolationList $violation)
+	{
+		if (count($violations)) {
+            	$message = 'Le fichier JSON contient des données non valides. Voici les erreurs que vous devez corriger : ';
+
+	            foreach ($violations as $violation) {
+	                $message .= sprintf("Field %s: %s ", $violation->getPropertyPath(), $violation->getMessage());
+	            }
+
+	            throw new ResourceValidationException($message);
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        return $this->view(
+			$article, 
+			Response::HTTP_CREATED, 
+			[
+				'Location' => $this->generateUrl('app_user_show', ['id' => $user->getId()], UrlGeneratorInterface::ABSOLUTE_URL) 
+			]
+		);
+	}
+
+	public function DeleteAction()
+	{
+
+	}
+
 }
