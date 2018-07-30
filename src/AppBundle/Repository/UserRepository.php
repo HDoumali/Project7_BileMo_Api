@@ -19,7 +19,7 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
 		$query = $this->createQueryBuilder('u')
 			->where('u.customer = :customer')
 			->setParameter('customer', $customer)
-			->orderBy('u.username', 'ASC')
+			->orderBy('u.username', 'DESC')
 			->getQuery();
 
 			return $query->getResult();

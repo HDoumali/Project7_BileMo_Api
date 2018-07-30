@@ -6,12 +6,45 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use Hateoas\Configuration\Annotation as Hateoas;
 
 /**
  * User
  *
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
+ * @ExclusionPolicy("all")
+ *
+ * @Hateoas\Relation(
+ *          "Self",
+ *          href = @Hateoas\Route(
+ *              "app_user_show",
+ *              parameters = { "id" = "expr(object.getId())" },
+ *              absolute = true
+ *          )
+ * )
+ * @Hateoas\Relation(
+ *          "Create",
+ *          href = @Hateoas\Route(
+ *              "app_user_create",
+ *              absolute = true
+ *          )
+ * )
+ * @Hateoas\Relation(
+ *          "Delete",
+ *          href = @Hateoas\Route(
+ *              "app_user_delete",
+ *              parameters = { "id" = "expr(object.getId())" },
+ *              absolute = true
+ *          )
+ * )
+ *
+ * @Hateoas\Relation(
+ *          "Customer",
+ *          embedded = @Hateoas\Embedded("expr(object.getCustomer())")
+ * )
  */
 class User implements UserInterface
 {
@@ -29,6 +62,7 @@ class User implements UserInterface
      *
      * @ORM\Column(name="username", type="string", length=255)
      * @Serializer\Since("1.0")
+     * @Expose
      */
     private $username;
 
@@ -37,6 +71,8 @@ class User implements UserInterface
      *
      * @ORM\Column(name="firstname", type="string", length=255)
      * @Serializer\Since("1.0")
+     * @Assert\NotBlank(groups={"Create_User"})
+     * @Expose
      */
     private $firstname;
 
@@ -45,6 +81,8 @@ class User implements UserInterface
      *
      * @ORM\Column(name="lastname", type="string", length=255)
      * @Serializer\Since("1.0")
+     * @Assert\NotBlank(groups={"Create_User"})
+     * @Expose
      */
     private $lastname;
 
@@ -53,6 +91,8 @@ class User implements UserInterface
      *
      * @ORM\Column(name="email", type="string", length=255)
      * @Serializer\Since("1.0")
+     * @Assert\NotBlank(groups={"Create_User"})
+     * @Expose
      */
     private $email;
 
@@ -65,8 +105,8 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @Assert\NotBlank()
      * @Assert\Length(max=4096)
+     * @Serializer\Since("1.0")
      */
     private $plainPassword;
 
@@ -75,6 +115,8 @@ class User implements UserInterface
      *
      * @ORM\Column(name="roles", type="array")
      * @Serializer\Since("1.0")
+     * @Assert\NotBlank(groups={"Create_User"})
+     * @Expose
      */
     private $roles = array('ROLE_USER');
 
@@ -213,6 +255,18 @@ class User implements UserInterface
     public function getPassword()
     {
         return $this->password;
+    }
+
+     public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+
+        return $this;
+    }
+
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
     }
 
     /**

@@ -12,6 +12,8 @@ use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\Validator\ConstraintViolationList;
 use AppBundle\Exception\ResourceValidationException;
 use AppBundle\Exception\ResourceNotExistException;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends FOSRestController
 {   
@@ -59,9 +61,12 @@ class UserController extends FOSRestController
 	 * @ParamConverter(
 	 *		 "user",
 	 *       converter="fos_rest.request_body",
+	 *		 options={
+	 *			  "validator"={ "groups"="Create_User" }
+	 *       }
 	 * )
 	 */
-	public function CreateAction(User $user, ConstraintViolationList $violation)
+	public function CreateAction(User $user, ConstraintViolationList $violations, UserPasswordEncoderInterface $passwordEncoder)
 	{
 		if (count($violations)) {
             	$message = 'Le fichier JSON contient des données non valides. Voici les erreurs que vous devez corriger : ';
@@ -73,12 +78,17 @@ class UserController extends FOSRestController
 	            throw new ResourceValidationException($message);
         }
 
+        $customer = $this->getUser();
+
         $em = $this->getDoctrine()->getManager();
+        $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+        $user->setPassword($password);
+        $user->setCustomer($customer);
         $em->persist($user);
         $em->flush();
 
         return $this->view(
-			$article, 
+			$user, 
 			Response::HTTP_CREATED, 
 			[
 				'Location' => $this->generateUrl('app_user_show', ['id' => $user->getId()], UrlGeneratorInterface::ABSOLUTE_URL) 
@@ -86,9 +96,22 @@ class UserController extends FOSRestController
 		);
 	}
 
-	public function DeleteAction()
+	/**
+	 * @Rest\Delete(
+	 *		 path = "api/users/{id}",
+	 *	     name = "app_user_delete",
+	 *       requirements = {"id" = "\d+"}
+	 * )
+	 *
+	 * @Rest\View(StatusCode=204)
+	 */
+	public function DeleteAction(User $user)
 	{
+		$em = $this->getDoctrine()->getManager();
+		$em->remove($user);
+		$em->flush();
 
+		return;
 	}
 
 }

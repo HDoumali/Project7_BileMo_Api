@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use JMS\Serializer\Annotation as Serializer;
+use Hateoas\Configuration\Annotation as Hateoas;
+
 
 /**
  * Phone
@@ -13,6 +15,22 @@ use JMS\Serializer\Annotation as Serializer;
  * @ORM\Table(name="phone")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PhoneRepository")
  * @ExclusionPolicy("all")
+ *
+ * @Hateoas\Relation(
+ *          "Self",
+ *          href = @Hateoas\Route(
+ *              "app_phone_show",
+ *              parameters = { "id" = "expr(object.getId())" },
+ *              absolute = true
+ *          )
+ * )
+ * @Hateoas\Relation(
+ *          "List",
+ *          href = @Hateoas\Route(
+ *              "app_phone_list",
+ *              absolute = true
+ *          )
+ * )
  */
 class Phone
 {
