@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Phone;
+use AppBundle\Entity\User;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -13,26 +13,26 @@ use Symfony\Component\Validator\ConstraintViolationList;
 use AppBundle\Exception\ResourceValidationException;
 use AppBundle\Exception\ResourceNotExistException;
 
-class PhoneController extends FOSRestController
+class UserController extends FOSRestController
 {   
 	/**
 	 * @Rest\Get(
-	 *		path = "api/phones/{id}",
-	 *		name = "app_phone_show",
+	 *		path = "api/users/{id}",
+	 *		name = "app_user_show",
 	 *		requirements = {"id" = "\d+"}
 	 * )
 	 *
 	 * @Rest\View(StatusCode=200)
 	 */
-	public function ShowAction(Phone $phone)
+	public function ShowAction(User $user)
 	{   
-		return $phone;
+		return $user;
 	}
     
     /**
      * @Rest\Get(
-     *		path = "api/phones",
-     *		name = "app_phone_list",
+     *		path = "api/users",
+     *		name = "app_user_list",
      * )
      *
      * @Rest\View(StatusCode=200)
@@ -41,9 +41,11 @@ class PhoneController extends FOSRestController
 	{
 		$em = $this->getDoctrine()->getManager();
 
-		$phones = $em->getRepository('AppBundle:Phone')->findAll();
+		$customer = $this->getUser();
 
-		return $phones;
+		$users = $em->getRepository('AppBundle:User')->getUsers($customer);
+
+		return $users;
 	}
 
 }
