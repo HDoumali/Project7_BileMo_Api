@@ -12,6 +12,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\Validator\ConstraintViolationList;
 use AppBundle\Exception\ResourceValidationException;
 use AppBundle\Exception\ResourceNotExistException;
+use Nelmio\ApiDocBundle\Annotation as Doc;
 
 class PhoneController extends FOSRestController
 {   
@@ -23,6 +24,32 @@ class PhoneController extends FOSRestController
 	 * )
 	 *
 	 * @Rest\View(StatusCode=200)
+	 * @Doc\ApiDoc(
+	 *			resource=true,
+	 *			description="Consulter le détail d’un mobile.",
+	 *			requirements={
+	 *					{
+	 *						"name"="id",
+	 *						"dataType"="integer",
+	 *						"requirements"="\d+",
+	 *						"description"="Identifiant unique du mobile."
+	 * 					}
+	 * 			},
+	 *			headers={
+	 *				{
+     *						"name"="Authorization",
+     *						"description"="Clé d'autorisation permettant l'authentification et l'accès aux ressources (Bearer YourAccessToken)",
+	 *						"required"=true
+     *	 			}
+	 *          },
+	 *			section="Phones",
+	 *			statusCodes={
+	 *					200="StatusCode retourné lorsque tout s'est bien passé lors de l'affichage d'un mobile"
+	 * 			},
+	 *			tags={
+	 *				"phones"
+	 * 			}
+	 * )
 	 */
 	public function ShowAction(Phone $phone)
 	{   
@@ -36,6 +63,24 @@ class PhoneController extends FOSRestController
      * )
      *
      * @Rest\View(StatusCode=200)
+     * @Doc\ApiDoc(
+	 *			resource=true,
+	 *			description="Consulter la liste des mobiles.",
+	 *			headers={
+	 *				{
+     *						"name"="Authorization",
+     *						"description"="Clé d'autorisation permettant l'authentification et l'accès aux ressources (Bearer YourAccessToken)",
+	 *						"required"=true
+     *	 			}
+	 *          },
+	 *			section="Phones",
+	 *			statusCodes={
+	 *					200="StatusCode retourné lorsque tout s'est bien passé lors de l'affichage de la liste des mobiles."
+	 * 			},
+	 *			tags={
+	 *				"phones"
+	 * 			}
+	 * )
      */
 	Public function ListAction()
 	{

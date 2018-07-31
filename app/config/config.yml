@@ -117,10 +117,12 @@ fos_oauth_server:
     auth_code_class:     AppBundle\Entity\AuthCode
     service:
         user_provider: fos_user.user_provider.username
+        
+nelmio_api_doc: ~
 
-nelmio_api_doc:
-    areas:
-        path_patterns: # an array of regexps
-            - ^/api(?!/doc$)
-        host_patterns:
-            - ^api\.
+#nelmio_api_doc:
+    #areas:
+        #path_patterns: # an array of regexps
+            #- ^/api(?!/doc$)
+        #host_patterns:
+            #- ^api\.

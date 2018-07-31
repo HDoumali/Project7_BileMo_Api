@@ -14,6 +14,7 @@ use AppBundle\Exception\ResourceValidationException;
 use AppBundle\Exception\ResourceNotExistException;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Nelmio\ApiDocBundle\Annotation as Doc;
 
 class UserController extends FOSRestController
 {   
@@ -25,6 +26,33 @@ class UserController extends FOSRestController
 	 * )
 	 *
 	 * @Rest\View(StatusCode=200)
+	 *
+	 * @Doc\ApiDoc(
+	 *			resource=true,
+	 *			description="Consulter le détail d’un utilisateur inscrit lié à un client.",
+	 *			requirements={
+	 *					{
+	 *						"name"="id",
+	 *						"dataType"="integer",
+	 *						"requirements"="\d+",
+	 *						"description"="Identifiant unique de l'utilisateur."
+	 * 					}
+	 * 			},
+	 *			headers={
+	 *				{
+     *						"name"="Authorization",
+     *						"description"="Clé d'autorisation permettant l'authentification et l'accès aux ressources (Bearer YourAccessToken)",
+	 *						"required"=true
+     *	 			}
+	 *          },
+	 *			section="Users",
+	 *			statusCodes={
+	 *					200="StatusCode retourné lorsque tout s'est bien passé lors de l'affichage d'un utilisateur lié à un client"
+	 * 			},
+	 *			tags={
+	 *				"users"
+	 * 			}
+	 * )
 	 */
 	public function ShowAction(User $user)
 	{   
@@ -38,6 +66,25 @@ class UserController extends FOSRestController
      * )
      *
      * @Rest\View(StatusCode=200)
+     *
+     * @Doc\ApiDoc(
+	 *			resource=true,
+	 *			description="Consulter la liste des utilisateurs inscrits liés à un client.",
+	 *			headers={
+	 *				{
+     *						"name"="Authorization",
+     *						"description"="Clé d'autorisation permettant l'authentification et l'accès aux ressources (Bearer YourAccessToken)",
+	 *						"required"=true
+     *	 			}
+	 *          },
+	 *			section="Users",
+	 *			statusCodes={
+	 *					200="StatusCode retourné lorsque tout s'est bien passé lors de l'affichage de la liste des utilisateurs liés à un client"
+	 * 			},
+	 *			tags={
+	 *				"users"
+	 * 			}
+	 * )
      */
 	Public function ListAction()
 	{
@@ -64,6 +111,25 @@ class UserController extends FOSRestController
 	 *		 options={
 	 *			  "validator"={ "groups"="Create_User" }
 	 *       }
+	 * )
+	 * @Doc\ApiDoc(
+	 *			resource=true,
+	 *			description="Création d’un utilisateur lié à un client.",
+	 *			headers={
+	 *				{
+     *						"name"="Authorization",
+     *						"description"="Clé d'autorisation permettant l'authentification et l'accès aux ressources (Bearer YourAccessToken)",
+	 *						"required"=true
+     *	 			}
+	 *          },
+	 *			section="Users",
+	 *			statusCodes={
+	 *					201="StatusCode retourné lorsque tout s'est bien passé lors de la création d'un utilisateur lié à un client",
+	 *					400="Code retourné lorsque qu'une violation est créee par la validation."
+	 * 			},
+	 *			tags={
+	 *				"users"
+	 * 			}
 	 * )
 	 */
 	public function CreateAction(User $user, ConstraintViolationList $violations, UserPasswordEncoderInterface $passwordEncoder)
@@ -104,6 +170,32 @@ class UserController extends FOSRestController
 	 * )
 	 *
 	 * @Rest\View(StatusCode=204)
+	 * @Doc\ApiDoc(
+	 *			resource=true,
+	 *			description="Supprimer un utilisateur inscrit lié à un client.",
+	 *			requirements={
+	 *					{
+	 *						"name"="id",
+	 *						"dataType"="integer",
+	 *						"requirements"="\d+",
+	 *						"description"="Identifiant unique de l'utilisateur."
+	 * 					}
+	 * 			},
+	 *			headers={
+	 *				{
+     *						"name"="Authorization",
+     *						"description"="Clé d'autorisation permettant l'authentification et l'accès aux ressources (Bearer YourAccessToken)",
+	 *						"required"=true
+     *	 			}
+	 *          },
+	 *			section="Users",
+	 *			statusCodes={
+	 *					204="StatusCode retourné lorsque tout s'est bien passé lors de la suppression d'un utilisateur lié à un client"
+	 * 			},
+	 *			tags={
+	 *				"users"
+	 * 			}
+	 * )
 	 */
 	public function DeleteAction(User $user)
 	{
