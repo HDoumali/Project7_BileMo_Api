@@ -53,6 +53,6 @@ Insert in the header the key "Authorization" and give it the value "Bearer YourA
 
 Step 8: Access API documentation
 
-To access the API documentation online, enter the URL "api/doc". Elle est également disponible 
+To access the API documentation online, enter the URL "api/doc". Documentation is also available on the Github repository (Project7_BileMo_Api_Doc.md)
 
 
