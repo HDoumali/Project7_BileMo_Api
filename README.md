@@ -2,6 +2,8 @@
 
 ## Parcours développeur d'application - PHP/Symfony
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1e8d4675337d46abac2e401d8f2c79e2)](https://www.codacy.com/project/HDoumali/Project7_BileMo_Api/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HDoumali/Project7_BileMo_Api&amp;utm_campaign=Badge_Grade_Dashboard)
+
 ### Context
 
 This project was realized as part of my studies of application developer - PHP / Symfony. Project 7 is the development of a REST API for the company "BileMo" offering a selection of high-end mobile phones. using the Symfony framework.
