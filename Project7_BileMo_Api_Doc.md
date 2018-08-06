@@ -35,6 +35,38 @@ _Consulter la liste des utilisateurs inscrits liés à un client._
 
 _Création d’un utilisateur lié à un client._
 
+#### Parameters ####
+
+username:
+
+  * type: string
+  * required: true
+
+firstname:
+
+  * type: string
+  * required: true
+
+lastname:
+
+  * type: string
+  * required: true
+
+email:
+
+  * type: string
+  * required: true
+
+password:
+
+  * type: string
+  * required: true
+
+roles:
+
+  * type: array
+  * required: false
+
 
 ## /api/users/{id} ##
 
