@@ -127,6 +127,14 @@ class UserController extends FOSRestController
 	 *					201="StatusCode retourné lorsque tout s'est bien passé lors de la création d'un utilisateur lié à un client",
 	 *					400="Code retourné lorsque qu'une violation est créee par la validation."
 	 * 			},
+	 *			parameters={
+	 *				{"name"="username", "dataType"="string", "required"=true},
+	 *				{"name"="firstname", "dataType"="string", "required"=true},
+	 *				{"name"="lastname", "dataType"="string", "required"=true},
+	 *				{"name"="email", "dataType"="string", "required"=true},
+	 *				{"name"="password", "dataType"="string", "required"=true},
+	 *				{"name"="roles", "dataType"="array", "required"=false}
+	 *          },
 	 *			tags={
 	 *				"users"
 	 * 			}
