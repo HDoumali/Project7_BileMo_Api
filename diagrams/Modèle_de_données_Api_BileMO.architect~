@@ -33,19 +33,19 @@
     <column id="COL6" populated="true" UUID="028a4b39-cca8-4978-924a-8b22d1ced9c4" autoIncrement="false" autoIncrementSequenceName="user_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL7" populated="true" UUID="60a08d31-4c9e-40f3-8a3f-83e24b11686b" autoIncrement="false" autoIncrementSequenceName="user_username_seq" defaultValue="" name="username" nullable="0" physicalName="username" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL7" populated="true" UUID="60a08d31-4c9e-40f3-8a3f-83e24b11686b" autoIncrement="false" autoIncrementSequenceName="user_username_seq" defaultValue="" name="username" nullable="0" physicalName="username" precision="70" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL8" populated="true" UUID="c74546b9-65f8-422f-870a-b7b9bdc80f41" autoIncrement="false" autoIncrementSequenceName="user_firstname_seq" defaultValue="" name="firstname" nullable="0" physicalName="firstname" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL8" populated="true" UUID="c74546b9-65f8-422f-870a-b7b9bdc80f41" autoIncrement="false" autoIncrementSequenceName="user_firstname_seq" defaultValue="" name="firstname" nullable="0" physicalName="firstname" precision="70" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL9" populated="true" UUID="b8775521-a19d-41a5-9785-82a91aec6596" autoIncrement="false" autoIncrementSequenceName="user_lastname_seq" defaultValue="" name="lastname" nullable="0" physicalName="lastname" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL9" populated="true" UUID="b8775521-a19d-41a5-9785-82a91aec6596" autoIncrement="false" autoIncrementSequenceName="user_lastname_seq" defaultValue="" name="lastname" nullable="0" physicalName="lastname" precision="70" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL10" populated="true" UUID="7303331c-ba93-4d9b-bed1-bada91b137d0" autoIncrement="false" autoIncrementSequenceName="user_email_seq" defaultValue="" name="email" nullable="0" physicalName="email" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL10" populated="true" UUID="7303331c-ba93-4d9b-bed1-bada91b137d0" autoIncrement="false" autoIncrementSequenceName="user_email_seq" defaultValue="" name="email" nullable="0" physicalName="email" precision="70" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL11" populated="true" UUID="9a7dae4d-0ca8-43af-944c-c8ccf8b1389a" autoIncrement="false" autoIncrementSequenceName="user_password_seq" defaultValue="" name="password" nullable="0" physicalName="password" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL11" populated="true" UUID="9a7dae4d-0ca8-43af-944c-c8ccf8b1389a" autoIncrement="false" autoIncrementSequenceName="user_password_seq" defaultValue="" name="password" nullable="0" physicalName="password" precision="70" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL12" populated="true" UUID="9e6eda5f-a7aa-4185-a31e-24d9a7b484b2" autoIncrement="false" autoIncrementSequenceName="user_roles_seq" defaultValue="" name="roles" nullable="0" physicalName="roles" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2003" userDefinedTypeUUID="5a4374b2-131e-46dd-b7f1-5eb2aaf25f8b" >
@@ -134,13 +134,13 @@
     <column id="COL33" populated="true" UUID="3dfe4214-b395-44c2-95f1-6e51c0712639" autoIncrement="true" autoIncrementSequenceName="phone_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL34" populated="true" UUID="08885593-9714-4b3b-afe9-686d451e8e7c" autoIncrement="false" autoIncrementSequenceName="phone_name_seq" defaultValue="" name="name" nullable="0" physicalName="name" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL34" populated="true" UUID="08885593-9714-4b3b-afe9-686d451e8e7c" autoIncrement="false" autoIncrementSequenceName="phone_name_seq" defaultValue="" name="name" nullable="0" physicalName="name" precision="70" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL35" populated="true" UUID="5371cf29-8ab4-4c02-b415-0735189d0ed9" autoIncrement="false" autoIncrementSequenceName="phone_brand_seq" defaultValue="" name="brand" nullable="0" physicalName="brand" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL35" populated="true" UUID="5371cf29-8ab4-4c02-b415-0735189d0ed9" autoIncrement="false" autoIncrementSequenceName="phone_brand_seq" defaultValue="" name="brand" nullable="0" physicalName="brand" precision="70" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL36" populated="true" UUID="82a01bcc-23ba-4146-b5ff-55fdc64799df" autoIncrement="false" autoIncrementSequenceName="phone_color_seq" defaultValue="" name="color" nullable="0" physicalName="color" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL36" populated="true" UUID="82a01bcc-23ba-4146-b5ff-55fdc64799df" autoIncrement="false" autoIncrementSequenceName="phone_color_seq" defaultValue="" name="color" nullable="0" physicalName="color" precision="70" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL37" populated="true" UUID="24d8d081-2512-4e3d-9949-8bd5c03d4c3c" autoIncrement="false" autoIncrementSequenceName="phone_price_seq" defaultValue="" name="price" nullable="0" physicalName="price" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="6" userDefinedTypeUUID="7e55bcd0-7606-4153-b749-9c397f12c4d8" >
